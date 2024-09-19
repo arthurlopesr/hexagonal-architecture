@@ -1,6 +1,7 @@
 package com.codeinbook.domain.service;
 
 import com.codeinbook.common.dto.BookDTO;
+import com.codeinbook.common.dto.PageDTO;
 import com.codeinbook.domain.port.out.BookRepositoryPort;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,6 +14,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -69,5 +71,21 @@ class BookServiceTest {
         bookService.delete("1");
 
         verify(bookRepositoryPort, times(1)).delete("1");
+    }
+
+    @Test
+    @DisplayName("Should get all books page")
+    void getAllBooksPage() {
+        List<BookDTO> bookDTOList = List.of(bookDTO);
+        PageDTO<BookDTO> page = PageDTO.<BookDTO>builder()
+                .content(bookDTOList)
+                .page(0)
+                .size(10)
+                .totalElements(100)
+                .totalPages(10)
+                .build();
+
+        when(bookRepositoryPort.findAll(0, 10)).thenReturn(page);
+        assertEquals(page, bookService.findAll(0, 10));
     }
 }
