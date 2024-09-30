@@ -25,7 +25,7 @@ public class BookService implements BookServicePort {
         return bookRepositoryPort.findById(bookId);
     }
 
-    public void delete(String bookId) {
+    public void deleteById(String bookId) {
         bookRepositoryPort.delete(bookId);
     }
 

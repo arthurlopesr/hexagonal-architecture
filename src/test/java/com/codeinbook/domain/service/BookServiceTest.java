@@ -68,7 +68,7 @@ class BookServiceTest {
     @Test
     @DisplayName("Should delete book")
     void deleteBook() {
-        bookService.delete("1");
+        bookService.deleteById("1");
 
         verify(bookRepositoryPort, times(1)).delete("1");
     }
