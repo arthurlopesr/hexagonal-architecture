@@ -2,9 +2,10 @@ package com.codeinbook.domain.service;
 
 import com.codeinbook.common.dto.BookDTO;
 import com.codeinbook.common.dto.PageDTO;
+import com.codeinbook.domain.port.in.BookServicePort;
 import com.codeinbook.domain.port.out.BookRepositoryPort;
 
-public class BookService {
+public class BookService implements BookServicePort {
 
     private final BookRepositoryPort bookRepositoryPort;
 
@@ -24,7 +25,7 @@ public class BookService {
         return bookRepositoryPort.findById(bookId);
     }
 
-    public void delete(String bookId) {
+    public void deleteById(String bookId) {
         bookRepositoryPort.delete(bookId);
     }
 

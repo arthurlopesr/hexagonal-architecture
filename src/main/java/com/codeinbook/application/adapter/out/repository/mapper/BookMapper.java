@@ -1,4 +1,4 @@
-package com.codeinbook.application.adapter.out.mapper;
+package com.codeinbook.application.adapter.out.repository.mapper;
 
 import com.codeinbook.common.dto.BookDTO;
 import com.codeinbook.infrastructure.model.BookModel;
