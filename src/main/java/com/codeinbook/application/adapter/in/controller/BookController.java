@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/books")
 public class BookController {
 
-    private BookServicePort bookServicePort;
+    private final BookServicePort bookServicePort;
 
     public BookController(BookServicePort bookServicePort) {
         this.bookServicePort = bookServicePort;
