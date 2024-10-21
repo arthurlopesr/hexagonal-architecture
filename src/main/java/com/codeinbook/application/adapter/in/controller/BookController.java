@@ -2,6 +2,7 @@ package com.codeinbook.application.adapter.in.controller;
 
 import com.codeinbook.common.dto.BookDTO;
 import com.codeinbook.common.dto.PageDTO;
+import com.codeinbook.common.exception.BadRequestException;
 import com.codeinbook.domain.port.in.BookServicePort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,9 @@ public class BookController {
 
     @PostMapping
     public ResponseEntity<BookDTO> create(@RequestBody BookDTO bookDTO) {
+        if (bookDTO.title() == null || bookDTO.title().isEmpty()) {
+            throw new BadRequestException("Title not found");
+        }
         return ResponseEntity.status(HttpStatus.CREATED).body(bookServicePort.create(bookDTO));
     }
 
