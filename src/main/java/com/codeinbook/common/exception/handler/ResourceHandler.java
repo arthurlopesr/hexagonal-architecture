@@ -32,7 +32,7 @@ public class ResourceHandler {
                 .build());
     }
 
-    @ExceptionHandler(BadRequestException.class)
+    @ExceptionHandler(BusinessException.class)
     public ResponseEntity<ErrorResponseDTO> businessException(BusinessException businessException) {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(ErrorResponseDTO.builder()
                 .message(businessException.getMessage())
