@@ -1,6 +1,7 @@
 package com.codeinbook.domain.service;
 
 import com.codeinbook.common.dto.AuthorDTO;
+import com.codeinbook.common.dto.PageDTO;
 import com.codeinbook.domain.port.out.AuthorRepositoryPort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -8,8 +9,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -40,5 +42,21 @@ class AuthorServiceTest {
 
         assertEquals(authorDTO, authorService.create(authorDTO));
         verify(authorRepositoryPort, times(1)).create(authorDTO);
+    }
+
+    @Test
+    @DisplayName("Should return all author with pagination")
+    void execute_findAll() {
+        List<AuthorDTO> authorDTOList = List.of(authorDTO);
+        PageDTO<AuthorDTO> page = PageDTO.<AuthorDTO>builder()
+                .content(authorDTOList)
+                .page(0)
+                .size(10)
+                .totalElements(100)
+                .totalPages(10)
+                .build();
+
+        when(authorRepositoryPort.findAll(0, 10)).thenReturn(page);
+        assertEquals(page, authorService.findAll(0, 10));
     }
 }

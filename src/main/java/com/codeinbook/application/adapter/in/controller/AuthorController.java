@@ -1,19 +1,18 @@
 package com.codeinbook.application.adapter.in.controller;
 
 import com.codeinbook.common.dto.AuthorDTO;
+import com.codeinbook.common.dto.PageDTO;
 import com.codeinbook.domain.port.in.AuthorServicePort;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/authors")
 public class AuthorController {
 
-    private AuthorServicePort authorServicePort;
+    private final AuthorServicePort authorServicePort;
 
     public AuthorController(AuthorServicePort authorServicePort) {
         this.authorServicePort = authorServicePort;
@@ -23,5 +22,11 @@ public class AuthorController {
     public ResponseEntity<AuthorDTO> create(@RequestBody AuthorDTO authorDTO) {
         authorServicePort.create(authorDTO);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @GetMapping
+    public ResponseEntity<PageDTO<AuthorDTO>> findAll(@RequestParam("page") int page, @RequestParam("size") int size) {
+        var authors = authorServicePort.findAll(page, size);
+        return ResponseEntity.status(HttpStatus.OK).body(authors);
     }
 }
