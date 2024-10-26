@@ -26,4 +26,8 @@ public class AuthorModel {
     public String getResume() {
         return resume;
     }
+
+    public String getAuthorId() {
+        return authorId;
+    }
 }
