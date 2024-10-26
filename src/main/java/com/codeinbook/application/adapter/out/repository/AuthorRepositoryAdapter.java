@@ -44,4 +44,9 @@ public class AuthorRepositoryAdapter implements AuthorRepositoryPort {
                 .totalPages(authorPage.getTotalPages())
                 .build();
     }
+
+    @Override
+    public void deleteById(String authorId) {
+        authorRepository.deleteById(authorId);
+    }
 }

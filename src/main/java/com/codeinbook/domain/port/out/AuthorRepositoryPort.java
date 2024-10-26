@@ -7,4 +7,5 @@ public interface AuthorRepositoryPort {
 
     AuthorDTO create(AuthorDTO authorDTO);
     PageDTO<AuthorDTO> findAll(int page, int size);
+    void deleteById(String authorId);
 }

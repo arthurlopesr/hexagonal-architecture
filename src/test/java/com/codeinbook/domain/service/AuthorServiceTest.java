@@ -30,6 +30,7 @@ class AuthorServiceTest {
     @BeforeEach
     void setUp() {
         authorDTO = AuthorDTO.builder()
+                .authorId("1")
                 .name("any_name_author")
                 .resume("any_resume_author")
                 .build();
@@ -58,5 +59,13 @@ class AuthorServiceTest {
 
         when(authorRepositoryPort.findAll(0, 10)).thenReturn(page);
         assertEquals(page, authorService.findAll(0, 10));
+    }
+
+    @Test
+    @DisplayName("Should delete author by id")
+    void execute_delete() {
+        authorService.deleteById(authorDTO.authorId());
+
+        verify(authorRepositoryPort, times(1)).deleteById(authorDTO.authorId());
     }
 }

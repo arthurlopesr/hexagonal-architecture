@@ -20,4 +20,8 @@ public class AuthorService implements AuthorServicePort {
     public PageDTO<AuthorDTO> findAll(int page, int size) {
         return authorRepository.findAll(page, size);
     }
+
+    public void deleteById(String authorId) {
+        authorRepository.deleteById(authorId);
+    }
 }
