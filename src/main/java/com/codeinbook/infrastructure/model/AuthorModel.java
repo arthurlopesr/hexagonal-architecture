@@ -1,8 +1,10 @@
 package com.codeinbook.infrastructure.model;
 
+import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+@Getter
 @Document
 public class AuthorModel {
 
@@ -15,19 +17,7 @@ public class AuthorModel {
     @Id
     private String authorId;
 
-    private String name;
+    private final String name;
 
-    public String getName() {
-        return name;
-    }
-
-    private String resume;
-
-    public String getResume() {
-        return resume;
-    }
-
-    public String getAuthorId() {
-        return authorId;
-    }
+    private final String resume;
 }

@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+@Getter
 @Document
 public class BookModel {
 
@@ -34,25 +35,5 @@ public class BookModel {
 
     public void with(BookDTO bookDTO) {
         this.bookId = Objects.nonNull(bookDTO.bookId()) ? bookDTO.bookId() : this.bookId;
-    }
-
-    public String getBookId() {
-        return bookId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getSubtitle() {
-        return subtitle;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
     }
 }
