@@ -12,7 +12,6 @@ public class CategoryService implements CategoryServicePort {
         this.categoryRepositoryPort = categoryRepositoryPort;
     }
 
-    @Override
     public CategoryDTO create(CategoryDTO dto) {
         return categoryRepositoryPort.create(dto);
     }

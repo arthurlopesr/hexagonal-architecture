@@ -3,8 +3,10 @@ package com.codeinbook.application.adapter.configuration;
 import com.codeinbook.domain.port.in.AuthorServicePort;
 import com.codeinbook.domain.port.out.AuthorRepositoryPort;
 import com.codeinbook.domain.port.out.BookRepositoryPort;
+import com.codeinbook.domain.port.out.CategoryRepositoryPort;
 import com.codeinbook.domain.service.AuthorService;
 import com.codeinbook.domain.service.BookService;
+import com.codeinbook.domain.service.CategoryService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,5 +21,10 @@ public class BeanConfig {
     @Bean
     public AuthorService authorService(AuthorRepositoryPort authorRepositoryPort) {
         return new AuthorService(authorRepositoryPort);
+    }
+
+    @Bean
+    public CategoryService categoryService(CategoryRepositoryPort categoryRepositoryPort) {
+        return new CategoryService(categoryRepositoryPort);
     }
 }
