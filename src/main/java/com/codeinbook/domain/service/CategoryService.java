@@ -22,4 +22,9 @@ public class CategoryService implements CategoryServicePort {
     public List<CategoryDTO> findAllCategories() {
         return categoryRepositoryPort.findAllCategories();
     }
+
+    @Override
+    public void deleteById(String categoryId) {
+        categoryRepositoryPort.deleteById(categoryId);
+    }
 }

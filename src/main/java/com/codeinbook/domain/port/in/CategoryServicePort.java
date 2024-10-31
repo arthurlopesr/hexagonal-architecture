@@ -8,4 +8,6 @@ public interface CategoryServicePort {
     CategoryDTO create(CategoryDTO dto);
 
     List<CategoryDTO> findAllCategories();
+
+    void deleteById(String categoryId);
 }

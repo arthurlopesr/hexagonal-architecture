@@ -33,4 +33,9 @@ public class CategoryRepositoryAdapter implements CategoryRepositoryPort {
                 .map(CategoryMapper.INSTANCE::toDto)
                 .toList();
     }
+
+    @Override
+    public void deleteById(String categoryId) {
+        categoryRepository.deleteById(categoryId);
+    }
 }

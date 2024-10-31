@@ -27,4 +27,10 @@ public class CategoryController {
     public ResponseEntity<List<CategoryDTO>> findAll() {
         return ResponseEntity.status(HttpStatus.OK).body(categoryServicePort.findAllCategories());
     }
+
+    @DeleteMapping("/{categoryId}")
+    public void deleteById(@PathVariable("categoryId") String categoryId) {
+        categoryServicePort.deleteById(categoryId);
+        ResponseEntity.noContent();
+    }
 }
