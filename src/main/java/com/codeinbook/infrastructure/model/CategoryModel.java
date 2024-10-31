@@ -1,16 +1,20 @@
 package com.codeinbook.infrastructure.model;
 
+import com.codeinbook.application.enums.CategoryTypeEnum;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
+@Setter
 @Document
 public class CategoryModel {
 
-    public CategoryModel(String categoryId, String name, String categoryType, List<CategoryModel> secondaryCategories) {
+    public CategoryModel(String categoryId, String name, CategoryTypeEnum categoryType, List<SecondCategoryModel> secondaryCategories) {
         this.categoryId = categoryId;
         this.name = name;
         this.categoryType = categoryType;
@@ -22,7 +26,13 @@ public class CategoryModel {
 
     private final String name;
 
-    private final String categoryType;
+    private final CategoryTypeEnum categoryType;
 
-    private final List<CategoryModel> secondaryCategories;
+    private List<SecondCategoryModel> secondaryCategories;
+
+    public void initializeSecondaryCategoriesIfNeeded() {
+        if (secondaryCategories == null) {
+            secondaryCategories = new ArrayList<>();
+        }
+    }
 }
