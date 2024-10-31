@@ -1,5 +1,6 @@
 package com.codeinbook.domain.service;
 
+import com.codeinbook.application.enums.CategoryTypeEnum;
 import com.codeinbook.common.dto.CategoryDTO;
 import com.codeinbook.domain.port.out.CategoryRepositoryPort;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +30,7 @@ class CategoryServiceTest {
         categoryDTO = CategoryDTO.builder()
                 .categoryId("any_id")
                 .name("any_category_name")
-                .categoryType("any_category_type")
+                .categoryType(CategoryTypeEnum.PRIMARY)
                 .build();
     }
 
