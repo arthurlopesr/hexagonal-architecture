@@ -3,7 +3,6 @@ package com.codeinbook.application.adapter.out.repository;
 import com.codeinbook.application.adapter.out.repository.mapper.CategoryMapper;
 import com.codeinbook.common.dto.CategoryDTO;
 import com.codeinbook.domain.port.out.CategoryRepositoryPort;
-import com.codeinbook.infrastructure.model.CategoryModel;
 import com.codeinbook.infrastructure.repository.CategoryRepository;
 import org.springframework.stereotype.Component;
 
