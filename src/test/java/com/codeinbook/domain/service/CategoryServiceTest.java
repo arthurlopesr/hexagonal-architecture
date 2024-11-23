@@ -2,7 +2,7 @@ package com.codeinbook.domain.service;
 
 import com.codeinbook.application.enums.CategoryTypeEnum;
 import com.codeinbook.common.dto.CategoryDTO;
-import com.codeinbook.domain.port.out.CategoryRepositoryPort;
+import com.codeinbook.domain.port.out.repository.CategoryRepositoryPort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

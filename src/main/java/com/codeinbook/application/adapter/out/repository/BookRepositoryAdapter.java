@@ -4,9 +4,10 @@ import com.codeinbook.application.adapter.out.repository.mapper.BookMapper;
 import com.codeinbook.common.dto.BookDTO;
 import com.codeinbook.common.dto.PageDTO;
 import com.codeinbook.common.exception.NotFoundException;
-import com.codeinbook.domain.port.out.BookRepositoryPort;
+import com.codeinbook.domain.port.out.repository.BookRepositoryPort;
 import com.codeinbook.infrastructure.model.BookModel;
 import com.codeinbook.infrastructure.repository.BookRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
@@ -14,13 +15,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class BookRepositoryAdapter implements BookRepositoryPort {
 
     private final BookRepository bookRepository;
-
-    public BookRepositoryAdapter(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
-    }
 
     @Override
     public BookDTO create(BookDTO bookDTO) {

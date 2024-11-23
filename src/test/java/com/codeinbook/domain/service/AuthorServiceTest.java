@@ -2,7 +2,7 @@ package com.codeinbook.domain.service;
 
 import com.codeinbook.common.dto.AuthorDTO;
 import com.codeinbook.common.dto.PageDTO;
-import com.codeinbook.domain.port.out.AuthorRepositoryPort;
+import com.codeinbook.domain.port.out.repository.AuthorRepositoryPort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

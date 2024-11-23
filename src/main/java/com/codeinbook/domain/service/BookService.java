@@ -3,7 +3,7 @@ package com.codeinbook.domain.service;
 import com.codeinbook.common.dto.BookDTO;
 import com.codeinbook.common.dto.PageDTO;
 import com.codeinbook.domain.port.in.BookServicePort;
-import com.codeinbook.domain.port.out.BookRepositoryPort;
+import com.codeinbook.domain.port.out.repository.BookRepositoryPort;
 
 public class BookService implements BookServicePort {
 
