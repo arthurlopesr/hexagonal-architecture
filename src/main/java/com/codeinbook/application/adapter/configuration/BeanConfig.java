@@ -1,9 +1,9 @@
 package com.codeinbook.application.adapter.configuration;
 
-import com.codeinbook.domain.port.out.AuthorRepositoryPort;
-import com.codeinbook.domain.port.out.BookRepositoryPort;
-import com.codeinbook.domain.port.out.CategoryRepositoryPort;
-import com.codeinbook.domain.port.out.SecondaryCategoryRepositoryPort;
+import com.codeinbook.domain.port.out.repository.AuthorRepositoryPort;
+import com.codeinbook.domain.port.out.repository.BookRepositoryPort;
+import com.codeinbook.domain.port.out.repository.CategoryRepositoryPort;
+import com.codeinbook.domain.port.out.repository.SecondaryCategoryRepositoryPort;
 import com.codeinbook.domain.service.AuthorService;
 import com.codeinbook.domain.service.BookService;
 import com.codeinbook.domain.service.CategoryService;

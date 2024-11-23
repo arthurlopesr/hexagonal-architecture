@@ -2,7 +2,7 @@ package com.codeinbook.domain.service;
 
 import com.codeinbook.common.dto.SecondaryCategoryDTO;
 import com.codeinbook.domain.port.in.SecondaryCategoryServicePort;
-import com.codeinbook.domain.port.out.SecondaryCategoryRepositoryPort;
+import com.codeinbook.domain.port.out.repository.SecondaryCategoryRepositoryPort;
 
 public class SecondaryCategoryService implements SecondaryCategoryServicePort {
 

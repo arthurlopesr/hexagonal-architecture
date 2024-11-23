@@ -3,9 +3,10 @@ package com.codeinbook.application.adapter.out.repository;
 import com.codeinbook.application.adapter.out.repository.mapper.AuthorMapper;
 import com.codeinbook.common.dto.AuthorDTO;
 import com.codeinbook.common.dto.PageDTO;
-import com.codeinbook.domain.port.out.AuthorRepositoryPort;
+import com.codeinbook.domain.port.out.repository.AuthorRepositoryPort;
 import com.codeinbook.infrastructure.model.AuthorModel;
 import com.codeinbook.infrastructure.repository.AuthorRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
@@ -13,13 +14,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class AuthorRepositoryAdapter implements AuthorRepositoryPort {
 
     private final AuthorRepository authorRepository;
-
-    public AuthorRepositoryAdapter(AuthorRepository authorRepository) {
-        this.authorRepository = authorRepository;
-    }
 
     @Override
     public AuthorDTO create(AuthorDTO authorDTO) {

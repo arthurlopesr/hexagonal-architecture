@@ -2,20 +2,18 @@ package com.codeinbook.application.adapter.out.repository;
 
 import com.codeinbook.application.adapter.out.repository.mapper.CategoryMapper;
 import com.codeinbook.common.dto.CategoryDTO;
-import com.codeinbook.domain.port.out.CategoryRepositoryPort;
+import com.codeinbook.domain.port.out.repository.CategoryRepositoryPort;
 import com.codeinbook.infrastructure.repository.CategoryRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class CategoryRepositoryAdapter implements CategoryRepositoryPort {
 
     private final CategoryRepository categoryRepository;
-
-    public CategoryRepositoryAdapter(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
-    }
 
     @Override
     public CategoryDTO create(CategoryDTO categoryDTO) {
