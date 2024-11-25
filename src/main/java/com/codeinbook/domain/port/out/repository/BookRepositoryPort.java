@@ -3,6 +3,8 @@ package com.codeinbook.domain.port.out.repository;
 import com.codeinbook.common.dto.BookDTO;
 import com.codeinbook.common.dto.PageDTO;
 
+import java.util.List;
+
 public interface BookRepositoryPort {
 
     BookDTO create(BookDTO bookDTO);
@@ -14,4 +16,6 @@ public interface BookRepositoryPort {
     void delete(String bookId);
 
     PageDTO<BookDTO> findAll(int page, int size);
+
+    List<BookDTO> findAllByCategoryId(String categoryId);
 }

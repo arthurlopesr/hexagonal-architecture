@@ -1,9 +1,12 @@
 package com.codeinbook.domain.service;
 
 import com.codeinbook.common.dto.BookDTO;
+import com.codeinbook.common.dto.CategoryBookEventDTO;
 import com.codeinbook.common.dto.PageDTO;
 import com.codeinbook.domain.port.in.BookServicePort;
 import com.codeinbook.domain.port.out.repository.BookRepositoryPort;
+
+import java.util.List;
 
 public class BookService implements BookServicePort {
 
@@ -31,5 +34,13 @@ public class BookService implements BookServicePort {
 
     public PageDTO<BookDTO> findAll(int page, int size) {
         return bookRepositoryPort.findAll(page, size);
+    }
+
+    @Override
+    public void updateAllCategoriesId(CategoryBookEventDTO eventDTO) {
+        List<BookDTO> bookList = bookRepositoryPort.findAllByCategoryId(eventDTO.source());
+        bookList.forEach(book -> {
+            bookRepositoryPort.update(book.bookId(), book);
+        });
     }
 }

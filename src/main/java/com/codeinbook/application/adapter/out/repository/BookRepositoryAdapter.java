@@ -64,6 +64,11 @@ public class BookRepositoryAdapter implements BookRepositoryPort {
                 .build();
     }
 
+    @Override
+    public List<BookDTO> findAllByCategoryId(String categoryId) {
+        return List.of();
+    }
+
     private BookModel getBook(String bookId) {
         return bookRepository.findById(bookId).orElseThrow(() -> new NotFoundException("Book not found"));
     }
